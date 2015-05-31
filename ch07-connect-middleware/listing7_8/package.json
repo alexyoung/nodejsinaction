@@ -1,0 +1,15 @@
+{
+  "name": "listing7_8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "author": "Alex R. Young",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.3.4",
+    "morgan": "^1.5.1"
+  }
+}

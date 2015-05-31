@@ -1,0 +1,17 @@
+{
+  "name": "listing7_14",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex R. Young",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.11.0",
+    "connect": "^3.3.4",
+    "csurf": "^1.6.6",
+    "express-session": "^1.10.2"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "listing6_9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Alex R. Young",
+  "license": "MIT",
+  "dependencies": {
+    "connect": "^3.3.4"
+  }
+}
