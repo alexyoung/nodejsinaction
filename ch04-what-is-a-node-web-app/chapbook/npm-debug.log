@@ -1,0 +1,23 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/iojs', '/usr/local/bin/npm', 'start' ]
+2 info using npm@2.7.1
+3 info using node@v1.6.2
+4 verbose stack Error: missing script: start
+4 verbose stack     at run (/usr/local/lib/node_modules/npm/lib/run-script.js:165:19)
+4 verbose stack     at /usr/local/lib/node_modules/npm/lib/run-script.js:81:5
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:52:40
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:376:33
+4 verbose stack     at checkBinReferences_ (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:341:59)
+4 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:373:17)
+4 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:127:33)
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:317:48
+4 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (evalmachine.<anonymous>:302:5)
+5 verbose cwd /Users/alex/Documents/Code/nodeinaction/ch04-what-is-a-node-web-app/chapbook
+6 error Darwin 14.3.0
+7 error argv "/usr/local/bin/iojs" "/usr/local/bin/npm" "start"
+8 error node v1.6.2
+9 error npm  v2.7.1
+10 error missing script: start
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
