@@ -1,0 +1,2 @@
+http://blog.nodejs.org/feed/
+http://blog.npmjs.org/rss
