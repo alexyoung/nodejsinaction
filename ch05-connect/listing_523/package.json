@@ -1,0 +1,17 @@
+{
+  "name": "listing_523",
+  "version": "1.0.0",
+  "description": "An extended HTTP verb example that forces browsers to try to use PUT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex R. Young",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.11.0",
+    "connect": "^3.4.0",
+    "method-override": "^2.3.1",
+    "morgan": "^1.5.1"
+  }
+}
