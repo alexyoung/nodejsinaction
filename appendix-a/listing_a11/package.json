@@ -1,15 +1,15 @@
 {
-  "name": "listing_520",
+  "name": "listing_a12",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Alex R. Young",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.11.0",
-    "connect": "^3.4.0"
+    "connect": "^3.4.0",
+    "express-session": "^1.10.2"
   }
 }

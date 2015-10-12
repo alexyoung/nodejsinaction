@@ -1,15 +1,16 @@
 {
-  "name": "listing_527",
+  "name": "listing_a13",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Alex R. Young",
   "license": "MIT",
   "dependencies": {
-    "basic-auth": "^1.0.0",
-    "connect": "^3.4.0"
+    "connect": "^3.4.0",
+    "connect-redis": "^2.2.0",
+    "express-session": "^1.10.2"
   }
 }
