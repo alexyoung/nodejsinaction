@@ -26,7 +26,7 @@ class Entry {
       'entries',
       entryJSON,
       (err) => {
-        if (err) return fn(err);
+        if (err) return cb(err);
         cb();
       }
     );
