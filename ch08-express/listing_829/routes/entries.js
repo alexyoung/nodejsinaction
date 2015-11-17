@@ -1,4 +1,5 @@
 const Entry = require('../models/entry');
+
 exports.list = (req, res, next) => {
   const page = req.page;
   Entry.getRange(page.from, page.to, (err, entries) => {
@@ -12,6 +13,7 @@ exports.list = (req, res, next) => {
 
 exports.submit = (req, res, next) => {
   const data = req.body.entry;
+
   const entry = new Entry({
     username: res.locals.user.name,
     title: data.title,
@@ -19,10 +21,15 @@ exports.submit = (req, res, next) => {
   });
   entry.save((err) => {
     if (err) return next(err);
-    res.redirect('/');
+    if (req.remoteUser) {
+      res.json({ message: 'Entry added.' });
+    } else {
+      res.redirect('/');
+    }
   });
 };
 
 exports.form = (req, res) => {
   res.render('post', { title: 'Post' });
 };
+

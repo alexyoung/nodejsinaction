@@ -1,5 +1,6 @@
 const auth = require('basic-auth');
 const User = require('../models/user');
+const Entry = require('../models/entry');
 
 exports.user = (req, res, next) => {
   User.get(req.params.id, (err, user) => {
@@ -10,6 +11,14 @@ exports.user = (req, res, next) => {
 };
 
 exports.auth = (req, res, next) => {
-  auth(req);
+  req.remoteUser = auth(req);
   next();
+};
+
+exports.entries = (req, res, next) => {
+  var page = req.page;
+  Entry.getRange(page.from, page.to, (err, entries) => {
+    if (err) return next(err);
+    res.json(entries);
+  });
 };

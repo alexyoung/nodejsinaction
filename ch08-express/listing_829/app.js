@@ -35,6 +35,8 @@ app.use('/api', api.auth);
 app.use(user);
 
 app.get('/api/user/:id', api.user);
+app.post('/api/entry', entries.submit);
+app.get('/api/entries/:page?', page(Entry.count), api.entries);
 
 app.get('/post', entries.form);
 app.post('/post', validate.required('entry[title]'), validate.lengthAbove('entry[title]', 4), entries.submit);
