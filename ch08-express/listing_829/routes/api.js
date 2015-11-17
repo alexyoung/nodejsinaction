@@ -16,7 +16,7 @@ exports.auth = (req, res, next) => {
 };
 
 exports.entries = (req, res, next) => {
-  var page = req.page;
+  const page = req.page;
   Entry.getRange(page.from, page.to, (err, entries) => {
     if (err) return next(err);
     res.json(entries);
