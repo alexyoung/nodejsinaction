@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <pre id="source"></pre>
+    <script>
+var readfile = require('remote').require('./readfile');
+readfile(function(err, text) {
+  console.log('readfile:', err, text);
+  document.getElementById('source').innerHTML = text;
+});
+    </script>
+  </body>
+</html>
