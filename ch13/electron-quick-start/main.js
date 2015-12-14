@@ -2,7 +2,6 @@
 const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
-const ipcMain = require('electron').ipcMain;
 const request = require('request');
 
 // Report crashes to our server.
@@ -11,12 +10,6 @@ electron.crashReporter.start();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
-
-ipcMain.on('http-request', (event, options) => {
-  request(options, (err, res, body) => {
-    event.sender.send('http-response', err, res, body);
-  });
-});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {

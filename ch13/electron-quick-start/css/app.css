@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 300;
+  src: local('Segoe UI Semilight');
+}
+
+body, html {
+  position: fixed;
+  background-color: #F7F7F7;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+h1, h2, input, .dg *, a, p, select, input, label {
+  font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+h1, h2 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+h1 {
+  background-color: #fff;
+  border-bottom: 1px solid #B3B3B3;
+  margin: 0;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+p { margin: 5px 0 }
+
+.content-container { padding: 10px; width: 79%; height: 100%; table-layout: fixed; overflow: hidden; box-sizing: border-box; position: absolute; margin-bottom: -100px; right: 0; left: 20%; }
+.content { padding: 0; width: 76%; height: 100%; }
+
+.raw {
+  font-family: 'Menlo', courier, monospace;
+  overflow: scroll;
+  background-color: #fff;
+  font-size: 11px;
+  width: 132%;
+  right: 0;
+  margin: 0;
+}
+
+pre.prettyprint {
+  border: 1px solid #E7E7E7;
+}
+
+#headers { height: calc(30% - 40px); }
+#raw, #error { height: calc(75% - 58px); }
+
+ul.nav { clear: right; width: 100%; height: 20px; list-style-type: none; margin: 10px 0 4px 0; padding: 0 }
+ul.nav li { float: left; width: 50px }
+ul.nav li a { text-decoration: none; color: #000; }
+ul.nav li.active a { color: #4190DD }
+
+.container { display: table; width: 100%; height: 100%; box-sizing: border-box }
+.request { width: 20%; float: left; border-right: 1px solid #999999; display: table-cell; box-sizing: border-box; height: 100%; overflow: auto; }
+.request h1 { background-color: #F6F6F6 }
+
+.response { width: 80%; float: left; padding: 0; box-sizing: border-box; height: 100%; background-color: #fff; }
+
+.request-options { padding: 0 10px; margin-top: 10px }
+
+.request-options .form-row { display: table; width: 100%; margin-top: 4px }
+.request-options .form-row label { display: table-cell; width: 32%; text-align: right; float: left; margin: 0; font-size: 11px; line-height: 20px }
+.request-options .form-row input { display: table-cell; width: 58%; text-align: left; float: right; margin: 0; border: 1px solid #C1C1C1; padding: 2px 4px; font-size: 11px }
+
+.headers { width: 100%; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; border-collapse: collapse }
+.headers .name { width: 30%; text-align: left; padding: 4px 0 }
+.headers th { color: #9a9a9a; font-weight: normal; border-bottom: 1px solid #DBDBDB; font-size: 11px; padding-left: 10px }
+.headers .value { width: 70%; text-align: left; padding: 4px 0; }
+.headers .value {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.header-body td { border-bottom: 1px solid #F8F8F8 }
+
+.btn { color: #000; background-color: #fff; padding: 2px 6px; border: 1px solid #CDCDCD; border-radius: 3px; text-decoration: none; float: right; margin-top: 4px; }
+.btn:active { background-color: #f0f0f0 }
