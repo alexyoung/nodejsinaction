@@ -116,7 +116,7 @@ ul.nav li.active a { color: #4190DD }
   <script>
 'use strict';
 const remote = require('electron').remote;
-const request = remote.require('request');
+const ipcRenderer = require('electron').ipcRenderer;
 const escape = require('escape-html');
 const Menu = remote.Menu;
 const MenuItem = remote.MenuItem;
@@ -176,9 +176,7 @@ function makeRequest() {
     body: ''
   };
 
-  console.log('Making request:', requestOptions);
-
-  request(requestOptions, (err, res, body) => {
+  ipcRenderer.once('http-response', (e, err, res, body) => {
     el.headers.setAttribute('class', 'raw prettyprint');
     el.raw.setAttribute('class', 'raw prettyprint');
     el.error.setAttribute('class', 'raw prettyprint');
@@ -190,6 +188,9 @@ function makeRequest() {
 
     prettyPrint();
   });
+
+  console.log('Making request:', requestOptions);
+  ipcRenderer.send('http-request', requestOptions);
 }
 
 menu.append(new MenuItem({ label: 'Close Pane', click: () => { console.log('item 1 clicked'); } }));
