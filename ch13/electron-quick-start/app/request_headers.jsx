@@ -46,7 +46,7 @@ class RequestHeaders extends React.Component {
       return (
         <tr key={i}>
           <td className="name"><label>{key}</label></td>
-          <td className="value"><input name="method" type="text" value={headers[key]} placeholder="text/html" /> <a href="#" className="round-btn" data-header-name={key} onClick={this.props.handleRemove}>&times;</a> </td>
+          <td className="value"><input name="method" type="text" value={headers[key]} data-header-name={key} onChange={this.props.handleChangeHeader} placeholder="Header value" /> <a href="#" className="round-btn" data-header-name={key} onClick={this.props.handleRemove}>&times;</a> </td>
         </tr>
       );
     });

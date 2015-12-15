@@ -19845,6 +19845,14 @@
 	      this.setState({ headers: headers });
 	    }
 	  }, {
+	    key: 'handleChangeHeader',
+	    value: function handleChangeHeader(e) {
+	      var key = e.target.dataset.headerName;
+	      var headers = this.state.headers;
+	      headers[key] = e.target.value;
+	      this.setState({ headers: headers });
+	    }
+	  }, {
 	    key: 'handleRemove',
 	    value: function handleRemove(e) {
 	      e.preventDefault();
@@ -19857,6 +19865,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var handleAdd = this.handleAdd.bind(this);
+	      var handleChangeHeader = this.handleChangeHeader.bind(this);
 	      var handleChange = this.handleChange.bind(this);
 	      var handleRemove = this.handleRemove.bind(this);
 	      var makeRequest = this.makeRequest.bind(this);
@@ -19920,6 +19929,7 @@
 	              ),
 	              _react2.default.createElement(_request_headers2.default, {
 	                headers: this.state.headers,
+	                handleChangeHeader: handleChangeHeader,
 	                handleRemove: handleRemove,
 	                handleAdd: handleAdd })
 	            )
@@ -20352,7 +20362,7 @@
 	          _react2.default.createElement(
 	            'td',
 	            { className: 'value' },
-	            _react2.default.createElement('input', { name: 'method', type: 'text', value: headers[key], placeholder: 'text/html' }),
+	            _react2.default.createElement('input', { name: 'method', type: 'text', value: headers[key], 'data-header-name': key, onChange: _this3.props.handleChangeHeader, placeholder: 'Header value' }),
 	            ' ',
 	            _react2.default.createElement(
 	              'a',

@@ -62,6 +62,13 @@ class Request extends React.Component {
     this.setState({ headers: headers });
   }
 
+  handleChangeHeader(e) {
+    const key = e.target.dataset.headerName;
+    const headers = this.state.headers;
+    headers[key] = e.target.value;
+    this.setState({ headers: headers });
+  }
+
   handleRemove(e) {
     e.preventDefault();
     const key = e.target.dataset.headerName;
@@ -72,6 +79,7 @@ class Request extends React.Component {
 
   render() {
     const handleAdd = this.handleAdd.bind(this);
+    const handleChangeHeader = this.handleChangeHeader.bind(this);
     const handleChange = this.handleChange.bind(this);
     const handleRemove = this.handleRemove.bind(this);
     const makeRequest = this.makeRequest.bind(this);
@@ -96,6 +104,7 @@ class Request extends React.Component {
               </thead>
               <RequestHeaders
                 headers={this.state.headers}
+                handleChangeHeader={handleChangeHeader}
                 handleRemove={handleRemove}
                 handleAdd={handleAdd} />
             </table>
