@@ -51,8 +51,6 @@ class Request extends React.Component {
       };
 
       Events.emit('result', result);
-      console.log('Got result:', result);
-      prettyPrint();
     });
   }
 

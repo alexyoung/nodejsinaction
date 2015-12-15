@@ -47,9 +47,7 @@ p { margin: 5px 0 }
   margin: 0;
 }
 
-pre.prettyprint {
-  border: 1px solid #E7E7E7;
-}
+pre { margin: 0; }
 
 #headers { height: calc(30% - 40px); }
 #raw, #error { height: calc(75% - 58px); }
