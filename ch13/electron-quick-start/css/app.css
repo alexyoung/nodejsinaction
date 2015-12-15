@@ -84,9 +84,10 @@ ul.nav li.active a { color: #4190DD }
 .header-body td { border-bottom: 1px solid #F8F8F8 }
 
 .request .headers { margin-top: 10px; }
-.request .headers input { margin-left: 10px; }
-.request .headers .add .name { padding-right: 20px }
-.request .headers .add .name input { width: 100%; }
+.request .headers input { width: 70%; }
+.request .headers th.name { text-align: right }
+.request .headers .name input { float: right }
+.request .headers .value { padding-left: 10px }
 .request .submit { border-top: 1px solid #DBDBDB; margin: 15px 0; padding-top: 5px }
 
 .btn { color: #000; background-color: #fff; padding: 2px 6px; border: 1px solid #CDCDCD; border-radius: 3px; text-decoration: none; float: right; margin-top: 4px; }
