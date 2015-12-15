@@ -34,15 +34,15 @@ h1 {
 
 p { margin: 5px 0 }
 
-.content-container { padding: 10px; width: 79%; height: 100%; table-layout: fixed; overflow: hidden; box-sizing: border-box; position: absolute; margin-bottom: -100px; right: 0; left: 20%; }
-.content { padding: 0; width: 76%; height: 100%; }
+.content-container { padding: 10px; width: 79%; height: 100%; table-layout: fixed; overflow: hidden; box-sizing: border-box; position: absolute; margin-bottom: -100px; right: 0; left: 30%; background-color: #fff }
+.content { padding: 0; width: 72%; height: 100%; }
 
 .raw {
   font-family: 'Menlo', courier, monospace;
   overflow: scroll;
   background-color: #fff;
   font-size: 11px;
-  width: 132%;
+  width: 122%;
   right: 0;
   margin: 0;
 }
@@ -60,16 +60,17 @@ ul.nav li a { text-decoration: none; color: #000; }
 ul.nav li.active a { color: #4190DD }
 
 .container { display: table; width: 100%; height: 100%; box-sizing: border-box }
-.request { width: 20%; float: left; border-right: 1px solid #999999; display: table-cell; box-sizing: border-box; height: 100%; overflow: auto; }
+.request { width: 30%; float: left; border-right: 1px solid #999999; display: table-cell; box-sizing: border-box; height: 100%; overflow: auto; }
 .request h1 { background-color: #F6F6F6 }
 
-.response { width: 80%; float: left; padding: 0; box-sizing: border-box; height: 100%; background-color: #fff; }
+.response { width: 70%; float: left; padding: 0; box-sizing: border-box; height: 100%; background-color: #fff; }
 
 .request-options { padding: 0 10px; margin-top: 10px }
 
 .request-options .form-row { display: table; width: 100%; margin-top: 4px }
-.request-options .form-row label { display: table-cell; width: 32%; text-align: right; float: left; margin: 0; font-size: 11px; line-height: 20px }
-.request-options .form-row input { display: table-cell; width: 58%; text-align: left; float: right; margin: 0; border: 1px solid #C1C1C1; padding: 2px 4px; font-size: 11px }
+.request-options .form-row label { display: table-cell; width: 30%; text-align: right; float: left; margin: 0 10px 0 0; font-size: 11px; line-height: 20px }
+.request-options .form-row .name label { float: right; width: 100%; text-align: right; margin-right: 0 }
+.request-options .form-row input { display: table-cell; text-align: left; margin: 0; border: 1px solid #C1C1C1; padding: 2px 4px; font-size: 11px }
 
 .headers { width: 100%; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; border-collapse: collapse }
 .headers .name { width: 30%; text-align: left; padding: 4px 0 }
@@ -84,5 +85,13 @@ ul.nav li.active a { color: #4190DD }
 }
 .header-body td { border-bottom: 1px solid #F8F8F8 }
 
+.request .headers { margin-top: 10px; }
+.request .headers input { margin-left: 10px; }
+.request .headers .add .name { padding-right: 20px }
+.request .headers .add .name input { width: 100%; }
+.request .submit { border-top: 1px solid #DBDBDB; margin: 15px 0; padding-top: 5px }
+
 .btn { color: #000; background-color: #fff; padding: 2px 6px; border: 1px solid #CDCDCD; border-radius: 3px; text-decoration: none; float: right; margin-top: 4px; }
 .btn:active { background-color: #f0f0f0 }
+
+.round-btn { text-decoration: none; color: #3E8FD6; }
