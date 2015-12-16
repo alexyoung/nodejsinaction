@@ -19801,30 +19801,14 @@
 	  _createClass(Request, [{
 	    key: 'handleChange',
 	    value: function handleChange(e) {
-	      switch (e.target.name) {
-	        case 'url':
-	          this.setState({ url: e.target.value });
-	          break;
-
-	        case 'method':
-	          this.setState({ method: e.target.value });
-	          break;
-	      }
+	      var state = {};
+	      state[e.target.name] = e.target.value;
+	      this.setState(state);
 	    }
 	  }, {
 	    key: 'makeRequest',
 	    value: function makeRequest() {
-	      console.log('state:', this.state);
-	      var requestOptions = {
-	        url: this.state.url,
-	        headers: this.state.headers,
-	        method: this.state.method,
-	        body: ''
-	      };
-
-	      console.log('Making request:', requestOptions);
-
-	      request(requestOptions, function (err, res, body) {
+	      request(this.state, function (err, res, body) {
 	        var result = {
 	          response: res ? '(' + res.statusCode + ')' : '(No response)',
 	          raw: body ? body : '',
@@ -20532,43 +20516,47 @@
 	              )
 	            ),
 	            _react2.default.createElement(
-	              'ul',
-	              { className: 'nav' },
+	              'div',
+	              { className: 'results' },
 	              _react2.default.createElement(
-	                'li',
-	                { className: tabClasses.body },
+	                'ul',
+	                { className: 'nav' },
 	                _react2.default.createElement(
-	                  'a',
-	                  { 'data-tab': 'body', href: '#', onClick: handleSelectTab },
-	                  'Body'
+	                  'li',
+	                  { className: tabClasses.body },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { 'data-tab': 'body', href: '#', onClick: handleSelectTab },
+	                    'Body'
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  'li',
+	                  { className: tabClasses.errors },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { 'data-tab': 'errors', href: '#', onClick: handleSelectTab },
+	                    'Errors'
+	                  )
 	                )
 	              ),
 	              _react2.default.createElement(
-	                'li',
-	                { className: tabClasses.errors },
+	                'div',
+	                { className: 'raw', id: 'raw', style: this.state.tab === 'body' ? null : { display: 'none' } },
 	                _react2.default.createElement(
-	                  'a',
-	                  { 'data-tab': 'errors', href: '#', onClick: handleSelectTab },
-	                  'Errors'
+	                  _reactHighlight2.default,
+	                  { className: highlightLanguage },
+	                  result.raw
 	                )
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'raw', id: 'raw', style: this.state.tab === 'body' ? null : { display: 'none' } },
+	              ),
 	              _react2.default.createElement(
-	                _reactHighlight2.default,
-	                { className: highlightLanguage },
-	                result.raw
-	              )
-	            ),
-	            _react2.default.createElement(
-	              'div',
-	              { className: 'raw', id: 'error', style: this.state.tab === 'errors' ? null : { display: 'none' } },
-	              _react2.default.createElement(
-	                _reactHighlight2.default,
-	                { className: 'json' },
-	                result.error
+	                'div',
+	                { className: 'raw', id: 'error', style: this.state.tab === 'errors' ? null : { display: 'none' } },
+	                _react2.default.createElement(
+	                  _reactHighlight2.default,
+	                  { className: 'json' },
+	                  result.error
+	                )
 	              )
 	            )
 	          )

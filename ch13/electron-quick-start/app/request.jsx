@@ -20,29 +20,13 @@ class Request extends React.Component {
   }
 
   handleChange(e) {
-    switch (e.target.name) {
-      case 'url':
-        this.setState({ url: e.target.value });
-      break;
-
-      case 'method':
-        this.setState({ method: e.target.value });
-      break;
-    }
+    const state = {};
+    state[e.target.name] = e.target.value;
+    this.setState(state);
   }
 
   makeRequest() {
-    console.log('state:', this.state);
-    const requestOptions = {
-      url: this.state.url,
-      headers: this.state.headers,
-      method: this.state.method,
-      body: ''
-    };
-
-    console.log('Making request:', requestOptions);
-
-    request(requestOptions, (err, res, body) => {
+    request(this.state, (err, res, body) => {
       const result = {
         response: res ? `(${res.statusCode})` : '(No response)',
         raw: body ? body : '',
