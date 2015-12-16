@@ -19809,14 +19809,17 @@
 	    key: 'makeRequest',
 	    value: function makeRequest() {
 	      request(this.state, function (err, res, body) {
+	        var statusCode = res ? res.statusCode : 'No response';
 	        var result = {
-	          response: res ? '(' + res.statusCode + ')' : '(No response)',
+	          response: '(' + statusCode + ')',
 	          raw: body ? body : '',
 	          headers: res ? res.headers : [],
 	          error: err ? JSON.stringify(err, null, 2) : ''
 	        };
 
 	        _events2.default.emit('result', result);
+
+	        new Notification('HTTP response finished: ' + statusCode);
 	      });
 	    }
 	  }, {
@@ -20490,7 +20493,7 @@
 	            { className: 'content' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'raw', id: 'headers' },
+	              { id: 'headers' },
 	              _react2.default.createElement(
 	                'table',
 	                { className: 'headers' },

@@ -38,7 +38,7 @@ input { border: 1px solid #CCCCCC; border-radius: 3px }
 input:focus { border: 1px solid #3E8FD6 !important; color: #3E8FD6; outline: none }
 
 .content-container { padding: 0; width: 79%; height: 100%; table-layout: fixed; overflow: hidden; box-sizing: border-box; position: absolute; margin-bottom: -100px; right: 0; left: 30%; background-color: #fff }
-.content { padding: 0; width: 100%; height: 100%; background-color: pink }
+.content { padding: 0; width: 100%; height: 100%; }
 
 .raw { overflow: scroll; background-color: #fff; font-size: 11px; width: 100%; right: 0; margin: 0; }
 

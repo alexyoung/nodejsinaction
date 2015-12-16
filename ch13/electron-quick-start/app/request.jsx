@@ -27,14 +27,17 @@ class Request extends React.Component {
 
   makeRequest() {
     request(this.state, (err, res, body) => {
+      const statusCode = res ? res.statusCode : 'No response';
       const result = {
-        response: res ? `(${res.statusCode})` : '(No response)',
+        response: `(${statusCode})`,
         raw: body ? body : '',
         headers: res ? res.headers : [],
         error: err ? JSON.stringify(err, null, 2) : ''
       };
 
       Events.emit('result', result);
+
+      new Notification(`HTTP response finished: ${statusCode}`)
     });
   }
 
