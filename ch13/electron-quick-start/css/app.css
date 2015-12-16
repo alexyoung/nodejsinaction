@@ -34,24 +34,19 @@ h1 {
 
 p { margin: 5px 0 }
 
-.content-container { padding: 0; width: 79%; height: 100%; table-layout: fixed; overflow: hidden; box-sizing: border-box; position: absolute; margin-bottom: -100px; right: 0; left: 30%; background-color: #fff }
-.content { padding: 0; width: 72%; height: 100%; }
+input { border: 1px solid #CCCCCC; border-radius: 3px }
+input:focus { border: 1px solid #3E8FD6 !important; color: #3E8FD6; outline: none }
 
-.raw {
-/*  font-family: 'Menlo', courier, monospace; */
-  overflow: scroll;
-  background-color: #fff;
-  font-size: 11px;
-  width: 100%;
-  right: 0;
-  margin: 0;
-}
+.content-container { padding: 0; width: 79%; height: 100%; table-layout: fixed; overflow: hidden; box-sizing: border-box; position: absolute; margin-bottom: -100px; right: 0; left: 30%; background-color: #fff }
+.content { padding: 0; width: 100%; height: 100%; background-color: pink }
+
+.raw { overflow: scroll; background-color: #fff; font-size: 11px; width: 100%; right: 0; margin: 0; }
 
 .results .raw { margin-top: 32px }
 
 pre { margin: 0; }
 
-#headers { height: calc(30% - 40px); }
+#headers { width: calc(86%); height: calc(30% - 40px); padding: 5px 10px; overflow: scroll }
 #raw, #error { height: calc(75% - 58px); }
 
 ul.nav { clear: right; width: 100%; height: 30px; list-style-type: none; margin: 0; padding: 0; border-top: 1px solid #B2B2B2; border-bottom: 1px solid #B2B2B2; background-color: #F7F7F7; position: absolute; }
@@ -66,7 +61,6 @@ ul.nav li.active a { color: #4190DD }
 .request h1 { background-color: #F6F6F6 }
 
 .response { width: 70%; float: left; padding: 0; box-sizing: border-box; height: 100%; background-color: #fff; }
-.response .headers { margin: 5px 10px }
 .request-options { padding: 0 10px; margin-top: 10px }
 
 .request-options .form-row { display: table; width: 100%; margin-top: 4px }
@@ -99,10 +93,4 @@ ul.nav li.active a { color: #4190DD }
 
 .round-btn { text-decoration: none; color: #3E8FD6; }
 
-.results {
-  background-color: #F7F7F7;
-  width: 122%;
-  height: 100%;
-  overflow: scroll;
-}
-
+.results { background-color: #F7F7F7; height: 100%; overflow: scroll; } 

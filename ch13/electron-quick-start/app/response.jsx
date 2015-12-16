@@ -60,7 +60,7 @@ class Response extends React.Component {
         <h1>Response <span id="response">{result.response}</span></h1>
         <div className="content-container">
           <div className="content">
-            <div className="raw" id="headers">
+            <div id="headers">
               <table className="headers">
                 <thead>
                   <tr>
