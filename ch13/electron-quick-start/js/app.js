@@ -19787,28 +19787,14 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Request).call(this, props));
 
-	    _this.state = {
-	      url: 'http://localhost:3000',
-	      method: 'GET',
-	      headers: {
-	        Accept: '*/*',
-	        'User-Agent': 'HTTP Wizard'
-	      }
-	    };
-	    return _this;
-	  }
-
-	  _createClass(Request, [{
-	    key: 'handleChange',
-	    value: function handleChange(e) {
+	    _this.handleChange = function (e) {
 	      var state = {};
 	      state[e.target.name] = e.target.value;
-	      this.setState(state);
-	    }
-	  }, {
-	    key: 'makeRequest',
-	    value: function makeRequest() {
-	      request(this.state, function (err, res, body) {
+	      _this.setState(state);
+	    };
+
+	    _this.makeRequest = function () {
+	      request(_this.state, function (err, res, body) {
 	        var statusCode = res ? res.statusCode : 'No response';
 	        var result = {
 	          response: '(' + statusCode + ')',
@@ -19821,40 +19807,43 @@
 
 	        new Notification('HTTP response finished: ' + statusCode);
 	      });
-	    }
-	  }, {
-	    key: 'handleAdd',
-	    value: function handleAdd(header) {
-	      var headers = this.state.headers;
+	    };
+
+	    _this.handleAdd = function (header) {
+	      var headers = _this.state.headers;
 	      headers[header.name] = header.value;
-	      this.setState({ headers: headers });
-	    }
-	  }, {
-	    key: 'handleChangeHeader',
-	    value: function handleChangeHeader(e) {
+	      _this.setState({ headers: headers });
+	    };
+
+	    _this.handleChangeHeader = function (e) {
 	      var key = e.target.dataset.headerName;
-	      var headers = this.state.headers;
+	      var headers = _this.state.headers;
 	      headers[key] = e.target.value;
-	      this.setState({ headers: headers });
-	    }
-	  }, {
-	    key: 'handleRemove',
-	    value: function handleRemove(e) {
+	      _this.setState({ headers: headers });
+	    };
+
+	    _this.handleRemove = function (e) {
 	      e.preventDefault();
 	      var key = e.target.dataset.headerName;
-	      var headers = this.state.headers;
+	      var headers = _this.state.headers;
 	      delete headers[key];
-	      this.setState({ headers: headers });
-	    }
-	  }, {
+	      _this.setState({ headers: headers });
+	    };
+
+	    _this.state = {
+	      url: 'http://localhost:3000',
+	      method: 'GET',
+	      headers: {
+	        Accept: '*/*',
+	        'User-Agent': 'HTTP Wizard'
+	      }
+	    };
+	    return _this;
+	  }
+
+	  _createClass(Request, [{
 	    key: 'render',
 	    value: function render() {
-	      var handleAdd = this.handleAdd.bind(this);
-	      var handleChangeHeader = this.handleChangeHeader.bind(this);
-	      var handleChange = this.handleChange.bind(this);
-	      var handleRemove = this.handleRemove.bind(this);
-	      var makeRequest = this.makeRequest.bind(this);
-
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'request' },
@@ -19875,7 +19864,7 @@
 	              'URL'
 	            ),
 	            ' ',
-	            _react2.default.createElement('input', { name: 'url', type: 'url', value: this.state.url, onChange: handleChange })
+	            _react2.default.createElement('input', { name: 'url', type: 'url', value: this.state.url, onChange: this.handleChange })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -19885,8 +19874,12 @@
 	              null,
 	              'Method'
 	            ),
-	            ' ',
-	            _react2.default.createElement('input', { name: 'method', type: 'text', value: this.state.method, placeholder: 'GET, POST, PATCH, PUT, DELETE', onChange: handleChange })
+	            _react2.default.createElement('input', {
+	              name: 'method',
+	              type: 'text',
+	              value: this.state.method,
+	              placeholder: 'GET, POST, PATCH, PUT, DELETE',
+	              onChange: this.handleChange })
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -19914,9 +19907,9 @@
 	              ),
 	              _react2.default.createElement(_request_headers2.default, {
 	                headers: this.state.headers,
-	                handleChangeHeader: handleChangeHeader,
-	                handleRemove: handleRemove,
-	                handleAdd: handleAdd })
+	                handleChangeHeader: this.handleChangeHeader,
+	                handleRemove: this.handleRemove,
+	                handleAdd: this.handleAdd })
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -19924,7 +19917,7 @@
 	            { className: 'form-row' },
 	            _react2.default.createElement(
 	              'a',
-	              { className: 'btn', onClick: makeRequest },
+	              { className: 'btn', onClick: this.makeRequest },
 	              'Make request'
 	            )
 	          )
@@ -20529,7 +20522,7 @@
 	                  { className: tabClasses.body },
 	                  _react2.default.createElement(
 	                    'a',
-	                    { 'data-tab': 'body', href: '#', onClick: handleSelectTab },
+	                    { 'data-tab': 'body', onClick: handleSelectTab },
 	                    'Body'
 	                  )
 	                ),

@@ -19,13 +19,13 @@ class Request extends React.Component {
     };
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     const state = {};
     state[e.target.name] = e.target.value;
     this.setState(state);
   }
 
-  makeRequest() {
+  makeRequest = () => {
     request(this.state, (err, res, body) => {
       const statusCode = res ? res.statusCode : 'No response';
       const result = {
@@ -41,20 +41,20 @@ class Request extends React.Component {
     });
   }
 
-  handleAdd(header) {
+  handleAdd = (header) => {
     const headers = this.state.headers;
     headers[header.name] = header.value;
     this.setState({ headers: headers });
   }
 
-  handleChangeHeader(e) {
+  handleChangeHeader = (e) => {
     const key = e.target.dataset.headerName;
     const headers = this.state.headers;
     headers[key] = e.target.value;
     this.setState({ headers: headers });
   }
 
-  handleRemove(e) {
+  handleRemoveHeader = (e) => {
     e.preventDefault();
     const key = e.target.dataset.headerName;
     const headers = this.state.headers;
@@ -63,21 +63,26 @@ class Request extends React.Component {
   }
 
   render() {
-    const handleAdd = this.handleAdd.bind(this);
-    const handleChangeHeader = this.handleChangeHeader.bind(this);
-    const handleChange = this.handleChange.bind(this);
-    const handleRemove = this.handleRemove.bind(this);
-    const makeRequest = this.makeRequest.bind(this);
-
     return (
       <div className="request">
         <h1>Request</h1>
         <div className="request-options">
           <div className="form-row">
-            <label>URL</label> <input name="url" type="url" value={this.state.url} onChange={handleChange} />
+            <label>URL</label>
+            <input
+              name="url"
+              type="url"
+              value={this.state.url}
+              onChange={this.handleChange} />
           </div>
           <div className="form-row">
-            <label>Method</label> <input name="method" type="text" value={this.state.method} placeholder="GET, POST, PATCH, PUT, DELETE" onChange={handleChange} />
+            <label>Method</label>
+            <input
+              name="method"
+              type="text"
+              value={this.state.method}
+              placeholder="GET, POST, PATCH, PUT, DELETE"
+              onChange={this.handleChange} />
           </div>
           <div className="form-row">
             <table className="headers">
@@ -89,13 +94,13 @@ class Request extends React.Component {
               </thead>
               <RequestHeaders
                 headers={this.state.headers}
-                handleChangeHeader={handleChangeHeader}
-                handleRemove={handleRemove}
-                handleAdd={handleAdd} />
+                handleChangeHeader={this.handleChangeHeader}
+                handleRemoveHeader={this.handleRemove}
+                handleAdd={this.handleAdd} />
             </table>
           </div>
           <div className="form-row">
-            <a className="btn" onClick={makeRequest}>Make request</a>
+            <a className="btn" onClick={this.makeRequest}>Make request</a>
           </div>
         </div>
       </div>

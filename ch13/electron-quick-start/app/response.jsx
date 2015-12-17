@@ -73,8 +73,12 @@ class Response extends React.Component {
             </div>
             <div className="results">
               <ul className="nav">
-                <li className={tabClasses.body}><a data-tab='body' href="#" onClick={handleSelectTab}>Body</a></li>
-                <li className={tabClasses.errors}><a data-tab='errors' href="#" onClick={handleSelectTab}>Errors</a></li>
+                <li className={tabClasses.body}>
+                  <a data-tab='body' onClick={handleSelectTab}>Body</a>
+                </li>
+                <li className={tabClasses.errors}>
+                  <a data-tab='errors' href="#" onClick={handleSelectTab}>Errors</a>
+                </li>
               </ul>
               <div className="raw" id="raw" style={this.state.tab === 'body' ? null : {display: 'none'}}><Highlight className={highlightLanguage}>{result.raw}</Highlight></div>
               <div className="raw" id="error" style={this.state.tab === 'errors' ? null : {display: 'none'}}><Highlight className="json">{result.error}</Highlight></div>
