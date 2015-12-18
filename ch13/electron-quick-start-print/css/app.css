@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 300;
+  src: local('Segoe UI Semilight');
+}
+
+body, html {
+  position: fixed;
+  background-color: #F7F7F7;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+h1, h2, input, .dg *, a, p, select, input, label {
+  font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+h1, h2 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+h1 {
+  background-color: #fff;
+  border-bottom: 1px solid #B3B3B3;
+  margin: 0;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+p { margin: 5px 0 }
+
+input { border: 1px solid #CCCCCC; border-radius: 3px }
+input:focus { border: 1px solid #3E8FD6 !important; color: #3E8FD6; outline: none }
+
+.content-container { padding: 0; width: 79%; height: 100%; table-layout: fixed; overflow: hidden; box-sizing: border-box; position: absolute; margin-bottom: -100px; right: 0; left: 30%; background-color: #fff }
+.content { padding: 0; width: 100%; height: 100%; }
+
+.raw { overflow: scroll; background-color: #fff; font-size: 11px; width: 100%; right: 0; margin: 0; }
+
+.results .raw { margin-top: 32px }
+
+pre { margin: 0; }
+
+#headers { width: calc(86%); height: calc(30% - 40px); padding: 5px 10px; overflow: scroll }
+#raw, #error { height: calc(75% - 58px); }
+
+ul.nav { clear: right; width: 100%; height: 30px; list-style-type: none; margin: 0; padding: 0; border-top: 1px solid #B2B2B2; border-bottom: 1px solid #B2B2B2; background-color: #F7F7F7; position: absolute; }
+ul.nav li { float: left; width: 50px; margin-top: 6px; border-right: 1px solid #DEDEDE; text-align: center }
+ul.nav li:last-child { border-right: none }
+ul.nav li a { text-decoration: none; color: #000; font-size: 12px; padding: 2px 4px; border-radius: 3px }
+ul.nav li a:hover { background-color: #EFEFEF }
+ul.nav li.active a { color: #4190DD }
+
+.container { display: table; width: 100%; height: 100%; box-sizing: border-box }
+.request { width: 30%; float: left; border-right: 1px solid #999999; display: table-cell; box-sizing: border-box; height: 100%; overflow: auto; }
+.request h1 { background-color: #F6F6F6 }
+
+.response { width: 70%; float: left; padding: 0; box-sizing: border-box; height: 100%; background-color: #fff; }
+.request-options { padding: 0 10px; margin-top: 10px }
+
+.request-options .form-row { display: table; width: 100%; margin-top: 4px }
+.request-options .form-row label { display: table-cell; width: 30%; text-align: right; float: left; margin: 0 10px 0 0; font-size: 11px; line-height: 20px }
+.request-options .form-row .name label { float: right; width: 100%; text-align: right; margin-right: 0 }
+.request-options .form-row input { display: table-cell; text-align: left; margin: 0; border: 1px solid #C1C1C1; padding: 2px 4px; font-size: 11px }
+
+.headers { width: 100%; font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; border-collapse: collapse }
+.headers .name { width: 30%; text-align: left; padding: 4px 0 }
+.headers th { color: #9a9a9a; font-weight: normal; border-bottom: 1px solid #DBDBDB; font-size: 11px; padding-left: 10px }
+.headers .value { width: 70%; text-align: left; padding: 4px 0; }
+.headers .value {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.request .header-body td { border-bottom: 1px solid #F8F8F8 }
+
+.request .headers { margin-top: 10px; }
+.request .headers input { width: 70%; }
+.request .headers th.name { text-align: right }
+.request .headers .name input { float: right }
+.request .headers .value { padding-left: 10px }
+.request .submit { border-top: 1px solid #DBDBDB; margin: 15px 0; padding-top: 5px }
+
+.btn { color: #000; background-color: #fff; padding: 2px 6px; border: 1px solid #CDCDCD; border-radius: 3px; text-decoration: none; float: right; margin-top: 4px; }
+.btn:active { background-color: #f0f0f0 }
+
+.round-btn { text-decoration: none; color: #3E8FD6; }
+
+.results { background-color: #F7F7F7; height: 100%; overflow: scroll; } 
