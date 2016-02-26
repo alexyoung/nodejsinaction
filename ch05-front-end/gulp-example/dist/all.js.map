@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.jsx"],"names":[],"mappings":";;;;;;;;;;;;AAGA,mBAAS,MAAT,CACE;;;;CADF,EAEE,SAAS,cAAT,CAAwB,SAAxB,CAFF","file":"all.js","sourcesContent":["import React from 'react';\nimport ReactDOM from 'react-dom';\n\nReactDOM.render(\n  <h1>Hello, world!</h1>,\n  document.getElementById('example')\n);\n\n"],"sourceRoot":"/source/"}
