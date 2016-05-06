@@ -1,0 +1,22 @@
+<html>
+  <head>
+  <title>EJS example</title>
+    <script src="ejs.js"></script>
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.js">
+    </script>
+  </head>
+  <body>
+    <div id="output"></div>
+    <script>
+      const template = "<%= message %>";
+      const context = { message: 'Hello template!' };
+      $(document).ready(() => {
+        $('#output').html(
+          ejs.render(template, context)
+        );
+      });
+    </script>
+  </body>
+</html>
+
