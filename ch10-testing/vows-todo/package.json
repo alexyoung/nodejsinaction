@@ -1,0 +1,15 @@
+{
+  "name": "vows-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "vows test/*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vows": "0.8.1"
+  }
+}
