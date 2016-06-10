@@ -10,13 +10,13 @@
   "author": "Alex R. Young",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.12.4",
-    "express": "^4.12.4",
-    "node-readability": "^1.0.1",
-    "sqlite3": "^3.0.8"
+    "body-parser": "1.12.4",
+    "express": "4.12.4",
+    "node-readability": "1.0.1",
+    "sqlite3": "3.0.8"
   },
   "devDependencies": {
-    "mocha": "^2.2.5",
-    "supertest": "^1.0.1"
+    "mocha": "2.2.5",
+    "supertest": "1.0.1"
   }
 }
