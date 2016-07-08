@@ -1,13 +1,14 @@
-var fs = require('fs');
-var Watcher = require('./watcher');
-var watchDir = './watch';
-var processedDir = './done';
-var watcher = new Watcher(watchDir, processedDir);
+'use strict';
+const fs = require('fs');
+const Watcher = require('./watcher');
+const watchDir = './watch';
+const processedDir = './done';
+const watcher = new Watcher(watchDir, processedDir);
 
-watcher.on('process', function process(file) {
-  var watchFile = this.watchDir + '/' + file;
-  var processedFile = this.processedDir + '/' + file.toLowerCase();
-  fs.rename(watchFile, processedFile, function(err) {
+watcher.on('process', (file) => {
+  const watchFile = `${watchDir}/${file}`;
+  const processedFile = `${processedDir}/${file.toLowerCase()}`;
+  fs.rename(watchFile, processedFile, err => {
     if (err) throw err;
   });
 });

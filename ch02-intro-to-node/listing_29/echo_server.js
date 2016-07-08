@@ -1,6 +1,7 @@
-var net = require('net');
-var server = net.createServer(function(socket) {
-  socket.on('data', function(data) {
+'use strict';
+const net = require('net');
+const server = net.createServer((socket) => {
+  socket.on('data', (data) => {
     socket.write(data);
   });
 });

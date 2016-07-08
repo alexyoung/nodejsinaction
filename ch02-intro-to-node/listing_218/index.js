@@ -1,44 +1,50 @@
-var fs = require('fs');
-var completedTasks = 0;
-var tasks = [];
-var wordCounts = {};
-var filesDir = './text';
+'use strict';
+const fs = require('fs');
+const tasks = [];
+const wordCounts = {};
+const filesDir = './text';
+let completedTasks = 0;
+
 function checkIfComplete() {
   completedTasks++;
-  if (completedTasks == tasks.length) {
-    for (var index in wordCounts) {
-      console.log(index +': ' + wordCounts[index]);
+  if (completedTasks === tasks.length) {
+    for (let index in wordCounts) {
+      console.log(`${index}: ${wordCounts[index]}`);
     }
   }
 }
+
+function addWordCount(word) {
+  wordCounts[word] = (wordCounts[word]) ? wordCounts[word] + 1 : 1;
+}
+
 function countWordsInText(text) {
-  var words = text
+  const words = text
     .toString()
     .toLowerCase()
     .split(/\W+/)
     .sort();
-  for (var index in words) {
-    var word = words[index];
-    if (word) {
-      wordCounts[word] = (wordCounts[word]) ? wordCounts[word] + 1 : 1;
-    }
-  }
+
+  words
+    .filter(word => word)
+    .forEach(word => addWordCount(word));
 }
-fs.readdir(filesDir, function(err, files) {
+
+fs.readdir(filesDir, (err, files) => {
   if (err) throw err;
-  for (var index in files) {
-    var task = (function(file) {
-      return function() {
-        fs.readFile(file, function(err, text) {
+
+  files.forEach(file => {
+    const task = (file => {
+      return () => {
+        fs.readFile(file, (err, text) => {
           if (err) throw err;
           countWordsInText(text);
           checkIfComplete();
         });
-      }
-    })(filesDir + '/' + files[index]);
+      };
+    })(`${filesDir}/${file}`);
     tasks.push(task);
-  }
-  for (var task in tasks) {
-    tasks[task]();
-  }
+  });
+
+  tasks.forEach(task => task());
 });

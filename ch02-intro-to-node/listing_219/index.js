@@ -1,28 +1,32 @@
-var flow = require('nimble')
-var exec = require('child_process').exec;
+'use strict';
+const flow = require('nimble');
+const exec = require('child_process').exec;
+
 function downloadNodeVersion(version, destination, callback) {
-  var url = 'http://nodejs.org/dist/node-v' + version + '.tar.gz';
-  var filepath = destination + '/' + version + '.tgz';
-  exec('curl ' + url + ' >' + filepath, callback);
+  const url = `http://nodejs.org/dist/v${version}/node-v${version}.tar.gz`;
+  const filepath = `${destination}/${version}.tgz`;
+  exec(`curl${url} > ${filepath}`, callback);
 }
+
 flow.series([
-  function(callback) {
+  callback => {
     flow.parallel([
-      function(callback) {
-        console.log('Downloading Node v0.4.6...');
-        downloadNodeVersion('0.4.6', '/tmp', callback);
+      callback => {
+        console.log('Downloading Node v4.4.7...');
+        downloadNodeVersion('4.4.7', '/tmp', callback);
       },
-      function(callback) {
-        console.log('Downloading Node v0.4.7...');
-        downloadNodeVersion('0.4.7', '/tmp', callback);
+      callback => {
+        console.log('Downloading Node v6.3.0...');
+        downloadNodeVersion('6.3.0', '/tmp', callback);
       }
     ], callback);
   },
-  function(callback) {
+  callback => {
     console.log('Creating archive of downloaded files...');
     exec(
-      'tar cvf node_distros.tar /tmp/0.4.6.tgz /tmp/0.4.7.tgz',
-      function(error, stdout, stderr) {
+      'tar cvf node_distros.tar /tmp/4.4.7.tgz /tmp/6.3.0.tgz',
+      err => {
+        if (err) throw err;
         console.log('All done!');
         callback();
       }

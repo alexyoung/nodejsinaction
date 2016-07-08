@@ -1,19 +1,20 @@
-var flow = require('nimble');
+'use strict';
+const flow = require('nimble');
 flow.series([
-  function(callback) {
-    setTimeout(function() {
+  callback => {
+    setTimeout(() => {
       console.log('I execute first.');
       callback();
     }, 1000);
   },
-  function(callback) {
-    setTimeout(function() {
+  callback => {
+    setTimeout(() => {
       console.log('I execute next.');
       callback();
     }, 500);
   },
-  function(callback) {
-    setTimeout(function() {
+  callback => {
+    setTimeout(() => {
       console.log('I execute last.');
       callback();
     }, 100);

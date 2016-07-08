@@ -1,25 +1,28 @@
-var fs = require('fs');
-var events = require('events');
-var util = require('util');
+'use strict';
+const fs = require('fs');
+const events = require('events');
 
-util.inherits(Watcher, events.EventEmitter);
-module.exports = Watcher;
+class Watcher extends events.EventEmitter {
+  constructor(watchDir, processedDir) {
+    super();
+    this.watchDir = watchDir;
+    this.processedDir = processedDir;
+  }
 
-function Watcher(watchDir, processedDir) {
-  this.watchDir = watchDir;
-  this.processedDir = processedDir;
+  watch() {
+    fs.readdir(this.watchDir, (err, files) => {
+      if (err) throw err;
+      for (var index in files) {
+        this.emit('process', files[index]);
+      }
+    });
+  }
+
+  start() {
+    fs.watchFile(this.watchDir, () => {
+      this.watch();
+    });
+  }
 }
 
-Watcher.prototype.watch = function() {
-  fs.readdir(this.watchDir, function(err, files) {
-    if (err) throw err;
-    for (var index in files) {
-      this.emit('process', files[index]);
-    }
-  }.bind(this));
-};
-Watcher.prototype.start = function() {
-  fs.watchFile(this.watchDir, function() {
-    this.watch();
-  }.bind(this));
-};
+module.exports = Watcher;
