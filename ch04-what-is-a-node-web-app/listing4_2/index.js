@@ -1,29 +1,29 @@
-var express = require('express');
-var app = express();
-var articles = [{ title: 'Example' }];
-var bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const articles = [{ title: 'Example' }];
+const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/articles', function(req, res, err) {
+app.get('/articles', (req, res, err) => {
   res.send(articles);
 });
 
-app.post('/articles', function(req, res, next) {
-  var article = { title: req.body.title };
+app.post('/articles', (req, res, next) => {
+  const article = { title: req.body.title };
   articles.push(article);
   res.send(article);
 });
 
-app.get('/articles/:id', function(req, res, next) {
-  var id = req.params.id;
+app.get('/articles/:id', (req, res, next) => {
+  const id = req.params.id;
   console.log('Fetching:', id);
   res.send(articles[id]);
 });
 
-app.delete('/articles/:id', function(req, res, next) {
-  var id = req.params.id;
+app.delete('/articles/:id', (req, res, next) => {
+  const id = req.params.id;
   console.log('Deleting:', id);
   delete articles[id];
   res.send({ message: 'Deleted' });

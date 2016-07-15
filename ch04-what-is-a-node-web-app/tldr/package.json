@@ -13,7 +13,7 @@
     "body-parser": "1.12.4",
     "express": "4.12.4",
     "node-readability": "1.0.1",
-    "sqlite3": "3.0.8"
+    "sqlite3": "3.1.4"
   },
   "devDependencies": {
     "mocha": "2.2.5",
