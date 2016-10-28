@@ -1,16 +1,16 @@
 'use strict';
-const flow = require('nimble');
+const async = require('async');
 const exec = require('child_process').exec;
 
 function downloadNodeVersion(version, destination, callback) {
   const url = `http://nodejs.org/dist/v${version}/node-v${version}.tar.gz`;
   const filepath = `${destination}/${version}.tgz`;
-  exec(`curl${url} > ${filepath}`, callback);
+  exec(`curl ${url} > ${filepath}`, callback);
 }
 
-flow.series([
+async.series([
   callback => {
-    flow.parallel([
+    async.parallel([
       callback => {
         console.log('Downloading Node v4.4.7...');
         downloadNodeVersion('4.4.7', '/tmp', callback);
@@ -32,4 +32,6 @@ flow.series([
       }
     );
   }
-]);
+], (err, results) => {
+  if (err) throw err;
+});
