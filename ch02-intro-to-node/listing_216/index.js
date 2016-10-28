@@ -1,6 +1,6 @@
 'use strict';
-const flow = require('nimble');
-flow.series([
+const async = require('async');
+async.series([
   callback => {
     setTimeout(() => {
       console.log('I execute first.');

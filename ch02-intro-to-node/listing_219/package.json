@@ -9,7 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "async": "2.1.2",
-    "nimble": "0.0.2"
+    "async": "2.1.2"
   }
 }
