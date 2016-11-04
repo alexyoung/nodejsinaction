@@ -33,15 +33,7 @@ app.get('/articles/:id', (req, res, next) => {
   const id = req.params.id;
   Article.find(id, (err, article) => {
     if (err) return next(err);
-
-    res.format({
-      html: () => {
-        res.render('article.ejs', { article });
-      },
-      json: () => {
-        res.send(article);
-      }
-    });
+    res.send(article);
   });
 });
 

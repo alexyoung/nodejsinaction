@@ -1,5 +1,5 @@
 {
-  "name": "listing4_6",
+  "name": "listing4_4",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,8 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.13.2",
-    "bootstrap": "3.3.7",
-    "ejs": "2.5.2",
     "express": "^4.13.1",
     "node-readability": "2.2.0",
     "sqlite3": "3.1.8"

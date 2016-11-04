@@ -9,23 +9,10 @@ app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(
-  '/css/bootstrap.css',
-  express.static('node_modules/bootstrap/dist/css/bootstrap.css')
-);
-
 app.get('/articles', (req, res, next) => {
   Article.all((err, articles) => {
     if (err) return next(err);
-
-    res.format({
-      html: () => {
-        res.render('articles.ejs', { articles });
-      },
-      json: () => {
-        res.send(articles);
-      }
-    });
+    res.send(articles);
   });
 });
 
@@ -33,15 +20,7 @@ app.get('/articles/:id', (req, res, next) => {
   const id = req.params.id;
   Article.find(id, (err, article) => {
     if (err) return next(err);
-
-    res.format({
-      html: () => {
-        res.render('article.ejs', { article });
-      },
-      json: () => {
-        res.send(article);
-      }
-    });
+    res.send(article);
   });
 });
 
