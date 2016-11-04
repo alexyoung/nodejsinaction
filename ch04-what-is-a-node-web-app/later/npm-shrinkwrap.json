@@ -1,5 +1,5 @@
 {
-  "name": "listing4_4",
+  "name": "listing4_6",
   "version": "1.0.0",
   "dependencies": {
     "accepts": {
@@ -81,6 +81,11 @@
       "version": "2.10.1",
       "from": "boom@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/boom/-/boom-2.10.1.tgz"
+    },
+    "bootstrap": {
+      "version": "3.3.7",
+      "from": "bootstrap@3.3.7",
+      "resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-3.3.7.tgz"
     },
     "browser-request": {
       "version": "0.3.3",
@@ -235,6 +240,11 @@
       "version": "1.1.1",
       "from": "ee-first@1.1.1",
       "resolved": "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
+    },
+    "ejs": {
+      "version": "2.5.2",
+      "from": "ejs@2.5.2",
+      "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.5.2.tgz"
     },
     "encodeurl": {
       "version": "1.0.1",
