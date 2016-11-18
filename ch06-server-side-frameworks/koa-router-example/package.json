@@ -1,15 +1,15 @@
 {
-  "name": "listing6_2",
+  "name": "koa-router-example",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "hapi": "^13.3.0"
+    "koa": "1.2.4",
+    "koa-router": "5.4.0"
   }
 }

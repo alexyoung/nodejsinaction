@@ -1,5 +1,5 @@
 {
-  "name": "listing6_3",
+  "name": "listing6_4",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "hapi": "^13.3.0"
+    "hapi": "^13.3.0",
+    "inert": "^3.2.0"
   }
 }

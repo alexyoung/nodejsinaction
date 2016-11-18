@@ -1,5 +1,5 @@
 {
-  "name": "listing6_3",
+  "name": "flatiron-example",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "hapi": "^13.3.0"
+    "flatiron": "0.4.3",
+    "union": "0.4.6"
   }
 }

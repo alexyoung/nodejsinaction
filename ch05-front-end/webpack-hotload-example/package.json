@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server:dev": "webpack-dev-server --hot –inline --content-base dist/ --port 3001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
