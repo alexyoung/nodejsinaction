@@ -6,7 +6,8 @@ exports.list = (req, res, next) => {
     if (err) return next(err);
     res.render('entries', {
       title: 'Entries',
-      entries: entries
+      entries: entries,
+      page
     });
   });
 };

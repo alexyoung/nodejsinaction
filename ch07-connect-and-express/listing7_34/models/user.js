@@ -79,7 +79,7 @@ class User {
       if (!user.id) return cb();
       bcrypt.hash(pass, user.salt, (err, hash) => {
         if (err) return cb(err);
-        if (hash === user.pass) return cb(null, user);
+        if (hash == user.pass) return cb(null, user);
         cb();
       });
     });

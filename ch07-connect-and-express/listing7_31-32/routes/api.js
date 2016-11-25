@@ -5,8 +5,11 @@ const User = require('../models/user');
 const Entry = require('../models/entry');
 
 exports.auth = (req, res, next) => {
-  req.remoteUser = auth(req);
-  next();
+  const { name, pass } = auth(req);
+  User.authenticate(name, pass, (err, user) => {
+    if (user) req.remoteUser = user;
+    next(err);
+  });
 };
 
 exports.user = (req, res, next) => {

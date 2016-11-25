@@ -14,7 +14,7 @@ function getField(req, field) {
   return val;
 }
 
-exports.required = field => {
+exports.required = (field) => {
   field = parseField(field);
   return (req, res, next) => {
     if (getField(req, field)) {
