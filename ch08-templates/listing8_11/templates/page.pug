@@ -1,11 +1,14 @@
-extends layout
-baseUrl = "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/"
+extends layout.pug
+
 block title
   title Messages
-style
-  link(rel="stylesheet", href= baseUrl+"themes/flick/jquery-ui.css")
-scripts
-  script(src= baseUrl+"jquery-ui.js")
+
+block style
+  link(rel="stylesheet", href=baseUrl+"themes/flick/jquery-ui.css")
+
+block scripts
+  script(src=baseUrl+"jquery-ui.js")
+
 block content
   - count = 0
   each message in messages
