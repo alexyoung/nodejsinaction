@@ -12,11 +12,11 @@ const mainTemplate = `
 `;
 const context = {
   students: [{
-     name: 'Jane Narwhal',
-     age: 21
+    name: 'Jane Narwhal',
+    age: 21
   }, {
-     name: 'Rick LaRue',
-     age: 26
+    name: 'Rick LaRue',
+    age: 26
   }]
 };
 const template = hogan.compile(mainTemplate);
