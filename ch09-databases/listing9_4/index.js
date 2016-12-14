@@ -14,18 +14,18 @@ db.connect((err, client) => {
   `, (err, result) => {
     if (err) throw err;
     const id = result.rows[0].id;
+    const updatedBody = 'greetings, world';
+
     console.log('Inserted row with id %s', id);
 
     db.query(`
-      INSERT INTO snippets (body) VALUES (
-        '${body}'
-      )
-      RETURNING id
-    `, () => {
+      UPDATE snippets SET (body) = (
+      '${body}'
+      ) WHERE id=${id};
+    `, (err, result) => {
       if (err) throw err;
-      const id = result.rows[0].id;
-      console.log('Inserted row with id %s', id);
-      db.end();
+      console.log('Updated %s rows.', result.rowCount);
+       db.end();
     });
   });
 });
