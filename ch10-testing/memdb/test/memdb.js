@@ -7,10 +7,10 @@ describe('memdb', () => {
     memdb.clear();
   });
 
-  describe('.save(doc)', () => {
+  describe('syncronous .saveSync(doc)', () => {
     it('should save the document', () => {
       const pet = { name: 'Tobi' };
-      memdb.save(pet);
+      memdb.saveSync(pet);
       const ret = memdb.first({ name: 'Tobi' });
       assert(ret == pet);
     });
@@ -20,8 +20,8 @@ describe('memdb', () => {
     it('should return the first matching doc', () => {
       const tobi = { name: 'Tobi' };
       const loki = { name: 'Loki' };
-      memdb.save(tobi);
-      memdb.save(loki);
+      memdb.saveSync(tobi);
+      memdb.saveSync(loki);
       let ret = memdb.first({ name: 'Tobi' });
       assert(ret == tobi);
       ret = memdb.first({ name: 'Loki' });
@@ -35,7 +35,7 @@ describe('memdb', () => {
   });
 });
 
-describe('.save(doc)', () => {
+describe('asyncronous .save(doc)', () => {
   it('should save the document', (done) => {
     const pet = { name: 'Tobi' };
     memdb.save(pet, () => {

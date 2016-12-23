@@ -20,6 +20,14 @@ exports.clear = () => {
   db.length = 0;
 };
 
+// Original version in listing 10.10:
+
+exports.saveSync = (doc, cb) => {
+  db.push(doc);
+};
+
+// Later version for testing asynchronous logic
+
 exports.save = (doc, cb) => {
   db.push(doc);
 
