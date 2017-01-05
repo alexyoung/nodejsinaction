@@ -5,7 +5,7 @@ const webdriverio = require('webdriverio');
 describe('todo tests', () => {
   let client;
 
-  before(function(){
+  before(() => {
     client = webdriverio.remote();
     return client.init();
   });
@@ -14,6 +14,6 @@ describe('todo tests', () => {
     return client
       .url('/')
       .getTitle()
-        .then(title => assert(title === 'My to-do list'));
+        .then(title => assert.equal(title, 'My to-do list'));
   });
 });
