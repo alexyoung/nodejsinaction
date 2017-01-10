@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const concat = require('mississippi').concat;
 const readFile = require('fs').readFile;
 const yargs = require('yargs');

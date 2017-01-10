@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "browserify": "13.3.0",
+    "uglify-js": "2.7.5"
+  },
+  "scripts": {
+    "build": "browserify -e main.js > bundle.js && uglifyjs bundle.js > bundle.min.js"
+  }
+}
