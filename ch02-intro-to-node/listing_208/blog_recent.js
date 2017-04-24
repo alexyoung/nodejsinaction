@@ -1,4 +1,3 @@
-'use strict';
 const http = require('http');
 const fs = require('fs');
 
@@ -22,7 +21,7 @@ function getTemplate(titles, res) {
 
 function formatHtml(titles, tmpl, res) {
   const html = tmpl.replace('%', titles.join('</li><li>'));
-  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.writeHead(200, { 'Content-Type': 'text/html'});
   res.end(html);
 }
 
