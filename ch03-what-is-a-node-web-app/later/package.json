@@ -1,0 +1,20 @@
+{
+  "name": "listing3_6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Alex R. Young",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "bootstrap": "3.3.7",
+    "ejs": "2.5.2",
+    "express": "^4.13.1",
+    "node-readability": "2.2.0",
+    "sqlite3": "3.1.8"
+  }
+}
