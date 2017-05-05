@@ -6,13 +6,13 @@ const channel = new events.EventEmitter();
 channel.clients = {};
 channel.subscriptions = {};
 channel.on('join', (id, client) => {
-  this.clients[id] = client;
-  this.subscriptions[id] = (senderId, message) => {
+  channel.clients[id] = client;
+  channel.subscriptions[id] = (senderId, message) => {
     if (id != senderId) {
-      this.clients[id].write(message);
+      channel.clients[id].write(message);
     }
   };
-  this.on('broadcast', this.subscriptions[id]);
+  channel.on('broadcast', channel.subscriptions[id]);
 });
 
 const server = net.createServer(client => {
