@@ -1,6 +1,6 @@
 ## Node in Action Listings
 
-These are the listings for [Node in Action, Second Edition](https://www.manning.com/books/node-js-in-action).
+These are the listings for [Node in Action, Second Edition](https://www.manning.com/books/node-js-in-action-second-edition).
 
 To run these listings, you will need to first run `npm install` from within the listing you want to run.
 
