@@ -5,7 +5,7 @@ const channel = new events.EventEmitter();
 
 channel.clients = {};
 channel.subscriptions = {};
-channel.on('join', (id, client) => {
+channel.on('join', function (id, client) {
   this.clients[id] = client;
   this.subscriptions[id] = (senderId, message) => {
     if (id != senderId) {
@@ -15,9 +15,9 @@ channel.on('join', (id, client) => {
   this.on('broadcast', this.subscriptions[id]);
 });
 
-channel.on('leave', id => {
-  channel.removeListener('broadcast', this.subscriptions[id]);
-  channel.emit('broadcast', id, id + ' has left.\n');
+channel.on('leave', function (id) {
+  this.removeListener('broadcast', this.subscriptions[id]);
+  this.emit('broadcast', id, id + ' has left.\n');
 });
 
 const server = net.createServer(client => {
