@@ -12,14 +12,15 @@ class Response extends React.Component {
       result: {},
       tab: 'body'
     };
+    this.handleResult = this.handleResult.bind(this);
   }
 
   componentWillUnmount() {
-    Events.removeListener('result', this.handleResult.bind(this));
+    Events.removeListener('result', this.handleResult);
   }
 
   componentDidMount() {
-    Events.addListener('result', this.handleResult.bind(this));
+    Events.addListener('result', this.handleResult);
   }
 
   handleResult(result) {
