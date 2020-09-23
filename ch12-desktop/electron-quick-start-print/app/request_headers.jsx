@@ -6,6 +6,8 @@ class AddHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = { name: null, value: null };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   handleChange(e) {
@@ -27,13 +29,10 @@ class AddHeader extends React.Component {
   }
 
   render() {
-    const handleChange = this.handleChange.bind(this);
-    const handleAdd = this.handleAdd.bind(this);
-
     return (
       <tr className="add">
-        <td className="name"><input name="name" type="text" value={this.state.name} placeholder="Name" onChange={handleChange} /> </td>
-        <td className="value"><input name="value" type="text" value={this.state.value} placeholder="Value" onChange={handleChange} /> <a href="#" className="round-btn" onClick={handleAdd}>+</a></td>
+        <td className="name"><input name="name" type="text" value={this.state.name} placeholder="Name" onChange={this.handleChange} /> </td>
+        <td className="value"><input name="value" type="text" value={this.state.value} placeholder="Value" onChange={this.handleChange} /> <a href="#" className="round-btn" onClick={this.handleAdd}>+</a></td>
       </tr>
     );
   }
