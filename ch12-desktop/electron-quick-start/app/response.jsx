@@ -13,6 +13,7 @@ class Response extends React.Component {
       tab: 'body'
     };
     this.handleResult = this.handleResult.bind(this);
+    this.handleSelectTab = this.handleSelectTab.bind(this);
   }
 
   componentWillUnmount() {
@@ -48,7 +49,6 @@ class Response extends React.Component {
   }
 
   render() {
-    const handleSelectTab = this.handleSelectTab.bind(this);
     const result = this.state.result;
     const highlightLanguage = this.getHighlightLanguage();
     const tabClasses = {
@@ -75,10 +75,10 @@ class Response extends React.Component {
             <div className="results">
               <ul className="nav">
                 <li className={tabClasses.body}>
-                  <a data-tab='body' onClick={handleSelectTab}>Body</a>
+                  <a data-tab='body' onClick={this.handleSelectTab}>Body</a>
                 </li>
                 <li className={tabClasses.errors}>
-                  <a data-tab='errors' href="#" onClick={handleSelectTab}>Errors</a>
+                  <a data-tab='errors' href="#" onClick={this.handleSelectTab}>Errors</a>
                 </li>
               </ul>
               <div className="raw" id="raw" style={this.state.tab === 'body' ? null : {display: 'none'}}><Highlight className={highlightLanguage}>{result.raw}</Highlight></div>
